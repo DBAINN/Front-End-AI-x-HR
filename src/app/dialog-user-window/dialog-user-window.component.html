@@ -1,0 +1,73 @@
+<form class="sign-up-form" [formGroup]="signupForm" (ngSubmit)="signup()">
+    <div>
+        <button class="sign-up-close" type="button" (click)="onClose()">
+            <mat-icon>close</mat-icon> 
+        </button>
+    </div>
+    <div class="sign-up-text">Registrazione</div>
+    <div class="input-with-icon">
+        <div class="icon-column">
+            <mat-icon class="icon">account_box</mat-icon>
+        </div>
+        <div class="input-column">
+            <mat-form-field style="width: 350px;"><input matInput formControlName="Nome" placeholder="Nome" required>
+            <mat-error>Nome richiesto</mat-error>
+            </mat-form-field>
+        </div>
+        </div>
+        <div class="input-with-icon">
+            <div class="icon-column">
+                <mat-icon class="icon">account_box</mat-icon>
+            </div>
+                <div class="input-column">
+                    <mat-form-field style="width: 350px;">
+                        <input matInput formControlName="Cognome" placeholder="Cognome" required>
+                        <mat-error>Cognome richiesto</mat-error>
+                    </mat-form-field>
+                </div>
+        </div>
+        <div class="input-with-icon">
+            <div class="icon-column">
+                <mat-icon class="icon">mail</mat-icon>
+            </div>
+            <div class="input-column">
+                <mat-form-field style="width: 350px;">
+                    <input matInput formControlName="Email" placeholder="Mail" required>
+                    <mat-error>Mail richiesta</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="input-with-icon">
+            <div class="icon-column">
+                <mat-icon class="icon">fingerprint</mat-icon>
+            </div>
+            <div class="input-column">
+                <mat-form-field style="width: 350px;">
+                    <input matInput formControlName="Password" placeholder="Password" required>
+                    <mat-hint class="pass-hint">Min. 8 caratteri ed almeno una lettera maiuscola e minuscola</mat-hint>
+                    <mat-error>Password richiesta</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="input-with-icon">
+            <div class="icon-column">
+                <mat-icon class="icon">work</mat-icon>
+            </div>
+            <div class="input-column">
+                <mat-form-field style="width: 350px;">
+                    <mat-label>Ruolo</mat-label>
+                    <mat-select formControlName="Ruolo">
+                        <mat-option value="admin">Admin</mat-option>
+                        <mat-option value="user">User</mat-option>
+                    </mat-select>
+                    <mat-error>Ruolo richiesto</mat-error>
+                </mat-form-field>
+            </div>
+            </div>
+            <section style="display: flex; justify-content: center;margin-top: 30px;">
+                <div class="example-button-row" >
+                    <button mat-raised-button class="sign-up-button" block="true" color="warn" style="padding: 10px 20px; font-size: 17px;">{{data ? 'Aggiorna': 'Conferma'}}</button>
+                </div>
+            </section>
+</form>
+    

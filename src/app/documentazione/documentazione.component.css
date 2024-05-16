@@ -1,0 +1,267 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+.admin{
+    font-size: 15px;
+    margin-left:3px;
+    margin-right: 50px;
+    margin-top: 5px;
+}
+.example-container {
+    height: 100vh; /* Imposta l'altezza al 100% della viewport */
+    display: flex; /* Utilizza il layout flessibile */
+  }
+  
+  .mat-drawer {
+    width: 250px; /* Larghezza del drawer */
+  }
+  
+  .mat-sidenav-content {
+    flex: 1; /* Il contenuto del sidenav occupa lo spazio rimanente */
+    overflow: auto; /* Consente lo scrolling se il contenuto è troppo grande */
+  }
+  .mat-icon{
+    color: rgb(72, 201, 206);
+  }
+  a.mat-list-item:hover {
+    border-color: blue; /* Cambia il colore del bordo al passaggio del mouse */
+  }
+  button.mat-button:hover {
+    opacity: 0.7; /* Cambia l'opacità al passaggio del mouse */
+    color: black;
+  }
+  .text-sidenav{
+    margin-left: 5px;
+    font-size:12px;
+    align-items: center;
+    color: white;
+  }
+  .mat-icon.users-admin{
+    font-size: 26px;
+    vertical-align: middle;
+    color:rgb(72, 201, 206);
+    margin-left: 2px;
+
+  }
+  .mat-icon.logout{
+    font-size: 20px;
+    color: #0c0c0c;
+    margin-right: 2px;
+   }
+   .mat-icon.logout{
+    margin-top: 3px;
+   }
+   .button-logout:hover{
+    color: #d73d3d;
+  }
+  .mat-icon.menu-class{
+    color: #0c0c0c;
+  }
+  .mat-stepper-horizontal {
+    margin-top: 8px;
+  }
+  .mat-horizontal-stepper-header-container {
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    width: 65% !important;
+    margin-left: 302px;
+}
+  
+  .mat-mdc-form-field {
+    margin-top: 16px;
+  }
+  .flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh; /* Altezza al 100% della viewport */
+    
+  }
+  .form-container {
+    width: calc(50% - 20px); /* Occupa la metà della larghezza del contenitore flessibile, con spazio a sinistra e a destra */
+    margin: 0 50px; /* Aggiungi spazio a sinistra e a destra */
+    height: 434px;
+    background-color: #8080800d;
+  }
+  .choose-file{
+    display: block;
+    justify-content: center;
+    margin-top: 25px;
+  }
+  .horizontal-divider {
+    background-color: rgba(207, 199, 199, 0.554); /* Colore del divider */
+    width:auto;
+    margin: 10px 25px;
+  }
+  input[type="file"]{
+    display: none;
+  }
+  label{
+    display: block;
+    position: relative;
+    color: #ffffff;
+    background-color: #025bee;
+    font-size: 1.12em;
+    font-weight: 500;
+    text-align: center;
+    width: 13.75em;
+    padding: 16px 0;
+    margin: auto;
+    border-radius: 0.31em;
+    cursor: pointer;
+  }
+  .label-zip{
+    display: block;
+    position: relative;
+    color: #ffffff;
+    background-color: #00bcd4;
+    font-size: 1.12em;
+    font-weight: 500;
+    text-align: center;
+    width: 13.75em;
+    padding: 16px 0;
+    margin: auto;
+    border-radius: 0.31em;
+    cursor: pointer;
+  }
+  #num-of-files{
+    font-weight: 400;
+    text-align: center;
+    margin: 1.25em 0 1.87em 0;
+    color: #4b4b4b;
+  }
+  #num-of-files-zip{
+    font-weight: 400;
+    text-align: center;
+    margin: 1.25em 0 1.87em 0;
+    color: #4b4b4b;
+  }
+  ul{
+    list-style-type: none;
+  }
+  .example-container li{
+    font-weight: 500;
+    background-color: #eff5ff;
+    color: #025bee;
+    margin-bottom: 1em;
+    padding: 1.1em 1em;
+    border-radius: 0.3em;
+    display: flex;
+    justify-content: space-between;
+  }
+  .complete{
+    margin-top: 20px;
+    font-size: larger;
+    color: #2fff37;
+    display: flex;
+    justify-content: center;
+  }
+  .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    
+  }
+
+  .button-container .button-left {
+    margin: 30px 10px;
+    background-color: #4889f5f5;
+    width: 25%;
+    height: 25%;
+    color: #eff5ff;
+  }
+  .button-container .button-right {
+    margin: 30px 10px;
+    background-color: #ee0202;
+    width: 25%;
+    height: 25%;
+    color: #eff5ff;
+  }
+  .button-right:hover{
+    transform:  scale(1.1);
+    color:black;
+  }
+  .button-left:hover{
+    transform:  scale(1.1);
+    color: black;
+  }
+  .upload-docs{
+    display: flex;
+    justify-content: center;
+    font-size: large;
+  }
+  .User-panel{
+    font-size: large;
+    font-weight: bold;
+    padding-top: 20px;
+    margin-left: 25px;
+    text-align: left;
+    display: block;
+  }
+  .mat-icon{
+    display: inline;
+  }
+  .mat-icon.icon-users{
+    font-size: 17px;
+    vertical-align: middle;
+    color: gray;
+    margin-left: 5px;
+  
+  }
+  .mat-icon.icon-tree{
+    font-size: 13px;
+    vertical-align: middle;
+    color: gray;
+    margin-left: 5px;
+  
+  }
+  .second-tree{
+    font-size: 12px;
+    margin: 5px;
+    font-weight: 400;
+  }
+  .next-button{
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+
+  }
+  .go-back{
+    top: 50%; /* Posiziona il pulsante verticalmente al centro della finestra del browser */
+    right: 20px; /* Distanza dal bordo destro della finestra del browser */
+    /* transform: translateY(-50%); Sposta il pulsante verso l'alto di metà della sua altezza per centrarlo verticalmente */
+    padding: 10px 20px; /* Spazio interno al pulsante */
+    background-color: #80808082; /* Colore di sfondo del pulsante */
+    color: #fff; /* Colore del testo del pulsante */
+    border: none; /* Rimuovi il bordo del pulsante */
+    border-radius: 5px; /* Angoli arrotondati del pulsante */
+    cursor: pointer; /* Mostra il cursore come un puntatore quando passi sopra al pulsante */
+    left:10px;
+    bottom: 10px;
+  }
+  
+  .go-back:hover {
+    background-color: #080808; /* Cambia il colore di sfondo del pulsante al passaggio del mouse */
+    color: white;
+  }
+  .image{
+    width: 60px;
+    height: 55px;
+  }
+  .alert{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+  }
+  .alert1{
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
+  }
+
+  .mat-stepper-horizontal{
+  width: 85%;
+  margin-left: 152px;
+}

@@ -1,0 +1,120 @@
+.login-page{
+    font-family: 'Arial', sans-serif;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    
+}
+.form-container {
+    background-color: white;
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 0 10px; /* Aggiunto per mantenere un po' di spazio tra i form */
+    flex: 1; /* Fa in modo che ogni form occupi spazio equo nel container */
+    text-align: center; /* Centra il contenuto all'interno del form */
+    font-size: smaller;
+    padding-bottom: 0px;
+    margin-top: 30px;
+    width: 30%;
+    padding: 40px;
+    
+}
+ .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    
+  }
+  
+  .example-full-width {
+    width: 100%;
+    margin-top: 30px;
+  }
+  .input-with-icon {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.icon-column {
+    flex: 20%; /* Larghezza della colonna dell'icona */
+    display: flex;
+    justify-content: center; /* Centra l'icona verticalmente */
+  }
+
+.input-column {
+    flex: 80%; /* Larghezza della colonna dell'input */
+}
+
+.icon {
+    font-size: 24px; /* Imposta la dimensione dell'icona */
+    color: #888; /* Colore dell'icona */
+    margin-right: 10px; /* Margine destro dell'icona */
+}
+.example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+  }
+  
+  .example-button-row {
+    display: table-cell;
+    max-width: 600px;
+  }
+  
+  .example-button-row .mat-mdc-button-raised {
+    margin: 8px 8px 8px 0;
+  }
+  .example-flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+  }
+  section {
+    display: table;
+    margin-top: 30px;
+  }
+  .mat-mdc-raised-button.mat-primary{
+    background-color: #3a6bb7c9;
+  }
+  .titolo-form{
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+
+  }
+  .forgot-password {
+    margin-top: -15px; /* Aggiungi spazio sopra il testo */
+    font-size: 13px; /* Imposta la dimensione del testo */
+    color: #666; /* Imposta il colore del testo */
+    text-align: end;
+}
+.card {
+  background-color: #7dccf0; /* Blu chiaro */
+  border-radius: 8px; /* Opzionale: bordi arrotondati */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombra della card */
+  width: 100%; /* Larghezza desiderata della card */
+  height: 100%;
+}
+
+.card-content {
+  padding: 20px; /* Spazio interno alla card */
+}
+.mat-icon.login-icon{
+  margin-top: 13px;
+}
+.image{
+  width: 130px;
+}

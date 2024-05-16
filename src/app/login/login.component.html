@@ -1,0 +1,54 @@
+<div class="login-page">
+    <img src="assets/logoInnovation.png" alt="Immagine di login" class="image">
+    <div class="form-container">
+        <div class="header pt-3 peach-gradient">
+            <div class="row d-flex justify-content-center">
+                <h2 class="white-text mb-3 pt-3 font-weight-bold">Log in</h2>
+            </div>
+            <form class="example-form" [formGroup]="loginForm" (ngSubmit)="login()">
+                <div class="input-with-icon">
+                    <div class="icon-column">
+                        <mat-icon class="icon" class="login-icon">account_box</mat-icon>
+                    </div>
+                    <div class="input-column">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>email</mat-label>
+                            <input type="email" matInput formControlName="email" [errorStateMatcher]="matcher" placeholder="nome.cognome@dbagroup.it" autocomplete="username">
+                            <mat-hint class="hint"></mat-hint>
+                            <mat-error *ngIf="loginForm.get('email')?.hasError('email')">Inserisci un indirizzo mail corretto</mat-error>
+                            <mat-error *ngIf="loginForm.get('email')?.hasError('required')">Email richiesta</mat-error>
+                            <!-- @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+                            <mat-error>Inserisci un indirizzo mail corretto</mat-error>
+                        }
+                        @if (emailFormControl.hasError('required')) {
+                            <mat-error>Email richiesta</mat-error>
+                        } -->
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="input-with-icon">
+                    <div class="icon-column"><mat-icon class="login-icon">fingerprint</mat-icon></div>
+                    <div class="input-column">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Password</mat-label>
+                            <input  matInput [type]="hide ? 'password':'text'" formControlName="password" [errorStateMatcher]="matcher" placeholder="Password" autocomplete="current-password">
+                            <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                            <mat-hint></mat-hint>
+                            <!-- <mat-error *ngIf="passwordFormControl.hasError('required')">Password richiesta</mat-error> -->
+                            <mat-error *ngIf="loginForm.get('password')?.hasError('required')">Password richiesta</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <section style="display: flex; justify-content: center;">
+                    <div class="example-button-row">
+                        <button mat-raised-button color="primary" block="true"
+                            style="padding: 10px 20px; font-size: 17px;">Invia</button>
+                    </div>
+                </section>
+            </form>
+        </div>
+
+    </div>

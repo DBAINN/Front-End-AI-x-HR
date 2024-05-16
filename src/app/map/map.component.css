@@ -1,0 +1,449 @@
+
+tbody tr.odd-row {
+  background-color: #0000000b !important;
+}
+.example-spacer {
+    flex: 1 1 auto;
+  }
+.admin{
+    font-size: 15px;
+    margin-left:3px;
+    margin-right: 50px;
+    margin-top: 5px;
+}
+.example-container {
+    height: 100vh; /* Imposta l'altezza al 100% della viewport */
+    display: flex; /* Utilizza il layout flessibile */
+  }
+  
+  .mat-drawer {
+    width: 250px; /* Larghezza del drawer */
+  }
+  
+  .mat-sidenav-content {
+    flex: 1; /* Il contenuto del sidenav occupa lo spazio rimanente */
+    overflow: auto; /* Consente lo scrolling se il contenuto è troppo grande */
+  }
+  a.mat-list-item:hover {
+    border-color: blue; /* Cambia il colore del bordo al passaggio del mouse */
+  }
+  button.mat-button:hover {
+    opacity: 0.7; /* Cambia l'opacità al passaggio del mouse */
+    color: black;
+  }
+  .mat-icon.users-admin{
+    font-size: 26px;
+    vertical-align: middle;
+    color: #4f3dd7;
+    margin-left: 2px;
+
+  }
+  .mat-icon.logout{
+    font-size: 20px;
+    color: #0c0c0c;
+    margin-right: 2px;
+   }
+   .mat-icon.logout{
+    margin-top: 3px;
+   }
+   .button-logout:hover{
+    color: #d73d3d;
+  }
+  .mat-icon.menu-class{
+    color: #0c0c0c;
+  }
+  .flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Altezza al 100% della viewport */
+  }
+  
+  .form-container {
+    width: calc(50% - 20px); /* Occupa la metà della larghezza del contenitore flessibile, con spazio a sinistra e a destra */
+    margin: 0 50px; /* Aggiungi spazio a sinistra e a destra */
+    height: 400px;
+  }
+  .vertical-divider {
+    width: 1px; /* Larghezza del divider */
+    height: 70%; /* Altezza del divider uguale all'altezza delle card */
+    margin: 0 20px; /* Margine a sinistra e a destra del divider */
+    background-color: black; /* Colore del divider */
+  }
+  .input-with-icon {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.icon-column {
+    flex: 10%; /* Larghezza della colonna dell'icona */
+    display: flex;
+    justify-content: center; /* Centra l'icona verticalmente */
+  }
+
+.input-column {
+    flex: 80%; /* Larghezza della colonna dell'input */
+}
+.space{
+  margin-top: 30px;
+}
+.example-full-width {
+  width: 85%;
+  margin-top: 30px;
+  margin-left: 25px;
+}* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+@media print {
+.table, .table__body {
+overflow: visible;
+height: auto !important;
+width: auto !important;
+}
+}
+
+/*@page {
+  size: landscape;
+  margin: 0; 
+}*/
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table {
+  height: 70vh;
+  background-color: #fff5;
+  backdrop-filter: blur(7px);
+  box-shadow: 0 .4rem .8rem #0005;
+  border-radius: .8rem;
+  overflow: hidden;
+}
+
+.table__header {
+  width: 100%;
+  height: 10%;
+  background-color: rgba(255, 255, 255, 0.875);
+  padding: .8rem 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.border-bottom {
+  border-bottom: 1px solid #ccc; /* Aggiungi un bordo grigio sotto ogni riga */
+}
+
+.table__body {
+  width: 95%;
+  max-height: calc(89% - 1.6rem);
+  background-color: #fffb;
+  margin: .8rem auto;
+
+
+  overflow: auto;
+  overflow: overlay;
+}
+
+
+.table__body::-webkit-scrollbar{
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.table__body::-webkit-scrollbar-thumb{
+  border-radius: .5rem;
+  background-color: #0004;
+  visibility: hidden;
+}
+
+.table__body:hover::-webkit-scrollbar-thumb{ 
+  visibility: visible;
+}
+
+
+table {
+  width: 100%;
+}
+
+td{
+  height: 45px;
+  margin-right: .5rem;
+  font-size: 14px;
+  font-family: monospace;
+  vertical-align: middle;
+}
+td:nth-child(1){
+  width:12px;
+}
+td:nth-child(2){
+  width: 30%;
+  text-align: left;
+  padding-left: 20px;
+}
+td:nth-child(3){
+  width: 53%;
+  text-align: left;
+  padding-left: 20px;
+}
+table, th {
+  border-collapse: collapse;
+  padding: 1rem;
+  text-align: center;
+}
+
+thead th {
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: #ff5722c4;
+  text-transform: capitalize;
+  font-size: large;
+  font-family: monospace;
+  color: linen;
+  
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #0000000b;
+}
+
+tbody tr {
+  --delay: .1s;
+  transition: .5s ease-in-out var(--delay), background-color 0s;
+}
+
+tbody tr.hide {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+tbody tr:hover {
+  background-color: rgba(150, 139, 139, 0.274) !important;
+}
+
+tbody tr td,
+tbody tr td p,
+tbody tr td img {
+  transition: .2s ease-in-out;
+}
+
+tbody tr.hide td,
+tbody tr.hide td p {
+  padding: 0;
+  font: 0 / 0 sans-serif;
+  transition: .2s ease-in-out .5s;
+}
+
+tbody tr.hide td img {
+  width: 0;
+  height: 0;
+  transition: .2s ease-in-out .5s;
+}
+
+.status {
+  padding: .4rem 0;
+  border-radius: 2rem;
+  text-align: center;
+}
+
+.status.delivered {
+  background-color: #86e49d;
+  color: #006b21;
+}
+
+.status.cancelled {
+  background-color: #d893a3;
+  color: #b30021;
+}
+
+.status.pending {
+  background-color: #ebc474;
+}
+
+.status.shipped {
+  background-color: #6fcaea;
+}
+
+
+@media (max-width: 1000px) {
+  td:not(:first-of-type) {
+      min-width: 12.1rem;
+  }
+}
+
+thead th span.icon-arrow {
+  display: inline-block;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+  border: 1.4px solid transparent;
+  
+  text-align: center;
+  font-size: 1rem;
+  
+  margin-left: .5rem;
+  transition: .2s ease-in-out;
+}
+
+thead th:hover span.icon-arrow{
+  border: 1.4px solid #6c00bd;
+}
+
+thead th:hover {
+  color: #6c00bd;
+}
+
+thead th.active span.icon-arrow{
+  background-color: #6c00bd;
+  color: #fff;
+}
+
+thead th.asc span.icon-arrow{
+  transform: rotate(180deg);
+}
+
+thead th.active,tbody td.active {
+  color: #6c00bd;
+}
+
+.export__file {
+  position: relative;
+}
+
+.export__file .export__file-btn:hover { 
+  background-color: #fff;
+  transform: scale(1.15);
+  cursor: pointer;
+}
+
+.export__file input {
+  display: none;
+}
+
+.export__file .export__file-options {
+  position: absolute;
+  right: 0;
+  
+  width: 12rem;
+  border-radius: .5rem;
+  overflow: hidden;
+  text-align: center;
+
+  opacity: 0;
+  transform: scale(.8);
+  transform-origin: top right;
+  
+  box-shadow: 0 .2rem .5rem #0004;
+  
+  transition: .2s;
+}
+
+.export__file input:checked + .export__file-options {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 100;
+}
+
+.export__file .export__file-options label{
+  display: block;
+  width: 100%;
+  padding: .6rem 0;
+  background-color: #f2f2f2;
+  
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  transition: .2s ease-in-out;
+}
+
+.export__file .export__file-options label:first-of-type{
+  padding: 1rem 0;
+  background-color: #86e49d !important;
+}
+
+.export__file .export__file-options label:hover{
+  transform: scale(1.05);
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.export__file .export__file-options img{
+  width: 2rem;
+  height: auto;
+}
+.User-panel{
+  font-size: large;
+  font-weight: bold;
+  padding: 20px;
+  margin-left: 25px;
+  text-align: left;
+  display: block;
+}
+.mat-icon{
+  display: inline;
+}
+.mat-icon.icon-users{
+  font-size: 17px;
+  vertical-align: middle;
+  color: gray;
+  margin-left: 5px;
+
+}
+.mat-icon.icon-tree{
+  font-size: 13px;
+  vertical-align: middle;
+  color: gray;
+  margin-left: 5px;
+
+}
+.second-tree{
+  font-size: 12px;
+  margin: 5px;
+  font-weight: 400;
+}
+.left-button {
+  position: fixed;
+  bottom: 20px; /* Altezza del margine dal basso della pagina */
+  left: 50%; /* Centra il bottone orizzontalmente */
+  transform: translateX(-50%); /* Corregge la posizione del bottone */
+  width: 200px;
+}
+
+
+button.left-button{
+  color: #e5ece7;
+  background-color: #ff5722c4;
+  width: 20%;
+  font-size: 17px;
+}
+.go-back{
+  top: 50%; /* Posiziona il pulsante verticalmente al centro della finestra del browser */
+  right: 20px; /* Distanza dal bordo destro della finestra del browser */
+  /* transform: translateY(-50%); Sposta il pulsante verso l'alto di metà della sua altezza per centrarlo verticalmente */
+  padding: 10px 20px; /* Spazio interno al pulsante */
+  background-color: #80808082; /* Colore di sfondo del pulsante */
+  color: #fff; /* Colore del testo del pulsante */
+  border: none; /* Rimuovi il bordo del pulsante */
+  border-radius: 5px; /* Angoli arrotondati del pulsante */
+  cursor: pointer; /* Mostra il cursore come un puntatore quando passi sopra al pulsante */
+  left:10px;
+  bottom: -32px;
+}
+
+.go-back:hover {
+  background-color: #ff5722c4; /* Cambia il colore di sfondo del pulsante al passaggio del mouse */
+}
+.image{
+  width: 60px;
+  height: 55px;
+}

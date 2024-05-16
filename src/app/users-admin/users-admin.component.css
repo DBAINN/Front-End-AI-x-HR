@@ -1,0 +1,129 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+.admin{
+    font-size: 15px;
+    margin-left:3px;
+    margin-right: 50px;
+    margin-top: 5px;
+}
+.example-container {
+    height: 100vh; /* Imposta l'altezza al 100% della viewport */
+    display: flex; /* Utilizza il layout flessibile */
+  }
+  
+  .mat-drawer {
+    width: 250px; /* Larghezza del drawer */
+  }
+  
+  .mat-sidenav-content {
+    flex: 1; /* Il contenuto del sidenav occupa lo spazio rimanente */
+    overflow: auto; /* Consente lo scrolling se il contenuto è troppo grande */
+  }
+  .mat-icon{
+    color: rgb(72, 201, 206);
+  }
+  a.mat-list-item:hover {
+    border-color: blue; /* Cambia il colore del bordo al passaggio del mouse */
+  }
+  button.mat-button:hover {
+    opacity: 0.7; /* Cambia l'opacità al passaggio del mouse */
+    color: black;
+  }
+  .User-panel{
+    font-size: large;
+    font-weight: bold;
+    padding: 20px;
+    margin-left: 25px;
+    text-align: left;
+    display: block;
+  }
+  .mat-icon{
+    display: inline;
+  }
+  .mat-icon.icon-users{
+    font-size: 17px;
+    vertical-align: middle;
+    color: gray;
+    margin-left: 5px;
+
+  }
+  .mat-icon.icon-tree{
+    font-size: 13px;
+    vertical-align: middle;
+    color: gray;
+    margin-left: 5px;
+
+  }
+  .second-tree{
+    font-size: 12px;
+    margin: 5px;
+    font-weight: 400;
+  }
+  table {
+    width: 80%;
+  }
+  
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 10%;
+  }
+  
+  td {
+    width: 0%;
+  }
+  th {
+    text-align: center;
+  }
+  .filter-class{
+    padding: 20px;
+    width: -webkit-fill-available;
+  }
+  .table-user{
+    padding: 15px;
+    padding-top: 0px;
+  }
+  .mat-cell-no-user{
+    padding: 20px;
+    text-align: center;
+  }
+  .add-user-button{
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+    height: 40px;
+    margin-top: 10px;
+  }
+  .mat-icon.users-admin{
+    font-size: 27px;
+    vertical-align: middle;
+    color: #4f3dd7;
+    margin-left: 5px;
+
+  }
+  .mat-icon.icon-menu{
+    color: black;
+  }
+  .mat-icon.table-icon{
+    color: black;
+  }
+  .mat-icon.delete-icon{
+    color: #d73d3d;
+  }
+ .mat-icon.logout{
+  font-size: 20px;
+  color: #0c0c0c;
+  margin-right: 2px;
+ }
+ .mat-icon.logout{
+  margin-top: 3px;
+ }
+ .button-logout:hover{
+  color: #d73d3d;
+}
+.text-sidenav{
+  margin-left: 5px;
+  font-size:12px;
+  align-items: center;
+  color: white;
+}

@@ -1,0 +1,164 @@
+.container {
+    display: block;
+    background-color:#24367f;
+    height: 12%;
+    width: 100%;
+}
+
+.text {
+    display: flex;
+    text-align: center;
+    font-size: 4em;
+    letter-spacing: 0;
+    font-family: monospace;
+    white-space: nowrap;
+    margin-bottom: 15px;
+    color: white;
+    margin-left: 12px;
+    margin-top: 0;
+    padding-top: 9px;
+    vertical-align: middle;
+}
+
+@keyframes typing {
+    from { width: 0 }
+}
+
+.text1 {
+    display: flex;
+    text-align: center;
+    font-size: 1.6em;
+    letter-spacing: 10px;
+    font-family: monospace;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 3s steps(61), cursor .4s step-end infinite alternate;
+    color: white;
+    margin-top: 22px;
+    margin-left: 12px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center; /* Centra orizzontalmente */
+    align-items: center; /* Centra verticalmente */
+    margin-top: 180px; /* Aggiunge spazio sopra i pulsanti */
+}
+
+.button-left,
+.button-right {
+    background-color: #2196f3; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.button-left {
+    margin-right: 20px;
+    width: 30%;
+}
+
+.button-right {
+    margin-left: 20px;
+    width: 30%;
+}
+
+@keyframes cursor {
+    50% { border-color: transparent }
+}
+.vertical-divider {
+    width: 1px; /* Larghezza del divider */
+    height: 70%; /* Altezza del divider uguale all'altezza delle card */
+    margin: 0 20px; /* Margine a sinistra e a destra del divider */
+    background-color: black; /* Colore del divider */
+  }
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+.admin{
+    font-size: 15px;
+    margin-left:3px;
+    margin-right: 50px;
+    margin-top: 5px;
+}
+.example-container {
+    height: 100vh; /* Imposta l'altezza al 100% della viewport */
+    display: flex; /* Utilizza il layout flessibile */
+  }
+  
+  .mat-drawer {
+    width: 250px; /* Larghezza del drawer */
+  }
+  
+  .mat-sidenav-content {
+    flex: 1; /* Il contenuto del sidenav occupa lo spazio rimanente */
+    overflow: auto; /* Consente lo scrolling se il contenuto è troppo grande */
+  }
+  .mat-icon{
+    color: rgb(72, 201, 206);
+  }
+  a.mat-list-item:hover {
+    border-color: blue; /* Cambia il colore del bordo al passaggio del mouse */
+  }
+  button.mat-button:hover {
+    opacity: 0.7; /* Cambia l'opacità al passaggio del mouse */
+    color: black;
+  }
+  .mat-icon.users-admin{
+    font-size: 26px;
+    vertical-align: middle;
+    color: #4f3dd7;
+    margin-left: 2px;
+
+  }
+  .mat-icon.logout{
+    font-size: 20px;
+    color: #0c0c0c;
+    margin-right: 2px;
+   }
+   .mat-icon.logout{
+    margin-top: 3px;
+   }
+   .button-logout:hover{
+    color: #d73d3d;
+  }
+  .mat-icon.menu-class{
+    color: #0c0c0c;
+  }
+  .flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Altezza al 100% della viewport */
+  }
+  
+  .form-container {
+    width: calc(50% - 20px); /* Occupa la metà della larghezza del contenitore flessibile, con spazio a sinistra e a destra */
+    margin: 0 50px; /* Aggiungi spazio a sinistra e a destra */
+    height: 400px;
+  }
+  .button-left:hover{
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transform: translateY(-2px); /* Effetto sollevamento */
+    color: black;
+  }
+  .button-right:hover{
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transform: translateY(-2px); /* Effetto sollevamento */
+    color: black;
+  }
+  .button-left:hover .icon {
+    color: #0c0c0c; /* Colore desiderato durante l'hover */
+  }
+  .image{
+    width: 60px;
+    height: 55px;
+  }

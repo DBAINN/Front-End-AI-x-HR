@@ -1,0 +1,23 @@
+<GDAL_WMS>
+  <Service name="WMS">
+    <Version>1.1.1</Version>
+    <ServerUrl>https://wms.cartografia.agenziaentrate.gov.it/inspire/wms/ows01.php?language=ita&amp;SERVICE=WMS</ServerUrl>
+    <Layers>CP.CadastralParcel</Layers>
+    <SRS>EPSG:6706</SRS>
+    <ImageFormat>image/png</ImageFormat>
+    <Transparent>FALSE</Transparent>
+    <BBoxOrder>xyXY</BBoxOrder>
+  </Service>
+  <DataWindow>
+    <UpperLeftX>2</UpperLeftX>
+    <UpperLeftY>48</UpperLeftY>
+    <LowerRightX>19</LowerRightX>
+    <LowerRightY>33</LowerRightY>
+    <SizeX>1073741824</SizeX>
+    <SizeY>947419256</SizeY>
+  </DataWindow>
+  <BandsCount>3</BandsCount>
+  <BlockSizeX>1024</BlockSizeX>
+  <BlockSizeY>1024</BlockSizeY>
+  <OverviewCount>20</OverviewCount>
+</GDAL_WMS>

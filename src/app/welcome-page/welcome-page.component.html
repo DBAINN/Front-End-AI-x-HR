@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side">
+      <div style="background-color: #7062c3; height: 64px;">
+      </div>
+      <mat-nav-list>
+        <div style="margin-top: 20px; display: block;"></div>
+            <a mat-list-item href="users-admin" style="display: flex; align-items: center; justify-content: space-between; ">
+            <div style="display: flex; align-items: center;">
+              <i class="fa-solid fa-gears" style="font-size: 20px;"></i>
+                <span style="font-size: small;padding:11px;">Gestione Utenti</span>
+            </div>
+            <!-- Aggiungi il testo o altri elementi qui sulla parte destra -->
+            </a>
+            <a mat-list-item href="log" style="display: flex; align-items: center; justify-content: space-between;">
+                <div style="display: flex; align-items: center;">
+                  <i class="fa-solid fa-chart-simple" style="font-size: 20px;"></i>
+                  <span style="font-size: small; padding:23px;">Log Utenti</span>
+                </div>
+                <!-- Aggiungi il testo o altri elementi qui sulla parte destra -->
+              </a>
+      </mat-nav-list>
+        <div style="position: absolute; top: 0; right: 0; padding: 10px;">
+          <button mat-button style="position: absolute;  right: 0; padding: 10px;border: 1px solid transparent; transition: border-color 0.3s;" (click)="Closeside()">
+            <i class="fa-solid fa-circle-left" style="color: white;" ><span class="text-sidenav">Riduci</span></i>
+          </button>
+          </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar>
+        <button mat-icon-button class="example-icon" *ngIf="isAdmin()" (click)="sidenav.toggle()">
+          <mat-icon class="menu-class">menu</mat-icon>
+        </button>
+        <!-- <span>Tool Analisi POS <i class="fa-solid fa-file-lines" style="margin-left: 5px; color: #e32f0e;"></i></span> -->
+        <span class="example-spacer"></span>
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu utenti">
+          <!-- <mat-icon class="users-admin">supervised_user_circle</mat-icon> -->
+          <i class="fa-regular fa-user" style="font-size: 20px; color: red;"></i>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item class="button-logout" (click)="logout()"><mat-icon class="logout">logout</mat-icon><span style="font-size: 13px;">Log out</span></button>
+        </mat-menu>
+        <div class="admin">{{username}}</div>
+        <img src="assets/logoInnovationwithout.png" alt="Immagine di login" class="image">
+        
+      </mat-toolbar>
+<div class="container">
+    <p class="text">AI - POS Application</p>
+    <!-- <div><p class="text1">Sono il tuo assistente POS, scegli la funzione da utilizzare.</p></div> -->
+    </div>
+    <div class="buttons">
+        <button class="button-left" (click)="GotoChecklistPOS()"><i class="fa-solid fa-file-signature" style="color: #ffffff;padding: 10px; font-size: 26px;"></i><strong style="font-size: 25px;">Analisi POS</strong></button>
+        <mat-divider vertical="true" class="vertical-divider"></mat-divider>
+        <button class="button-right" (click)="onDocumentation()"><i class="fa-solid fa-book" style="color: #ffffff;padding: 10px; font-size: 26px;"></i><strong style="font-size: 25px;">Analisi allegati POS</strong></button>
+    </div>

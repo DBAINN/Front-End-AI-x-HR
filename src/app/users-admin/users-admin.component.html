@@ -1,0 +1,123 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side">
+      <div style="background-color: #00bcd4; height: 64px;">
+      </div>
+      <mat-nav-list>
+        <div style="margin-top: 20px; display: block;"></div>
+            <a mat-list-item href="#" style="display: flex; align-items: center; justify-content: space-between; ">
+            <div style="display: flex; align-items: center;">
+              <i class="fa-solid fa-gears" style="font-size: 20px;"></i>
+                <span style="font-size: small;padding:11px;">Gestione Utenti</span>
+            </div>
+            <!-- Aggiungi il testo o altri elementi qui sulla parte destra -->
+            </a>
+            <!--<a mat-list-item href="log" style="display: flex; align-items: center; justify-content: space-between;">
+                <div style="display: flex; align-items: center;">
+                  <i class="fa-solid fa-chart-simple" style="font-size: 20px;"></i>
+                  <span style="font-size: small; padding:23px;">Log Utenti</span>
+                </div>
+              </a>-->
+      </mat-nav-list>
+        <div style="position: absolute; top: 0; right: 0; padding: 10px;">
+          <button mat-button style="position: absolute;  right: 0; padding: 10px;border: 1px solid transparent; transition: border-color 0.3s;"(click)="Closeside()">
+            <i class="fa-solid fa-circle-left" style="color: white;" ><span class="text-sidenav">Riduci</span></i>
+          </button>
+          </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar>
+        <button mat-icon-button class="example-icon" (click)="sidenav.toggle()">
+          <mat-icon class="icon-menu">menu</mat-icon>
+        </button>
+        <span>Gestione Utenti</span>
+        <span class="example-spacer"></span>
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu utenti" (click)="returnhome()">
+          <!-- <mat-icon class="users-admin">supervised_user_circle</mat-icon> -->
+          <i class="fa-solid fa-house" style="color: #282525;font-size: 19px;"></i>
+        </button>
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu utenti">
+          <i class="fa-regular fa-user" style="font-size: 20px; color: red;"></i>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item class="button-logout" (click)="logout()"><mat-icon class="logout">logout</mat-icon><span style="font-size: 13px;">Log out</span></button>
+        </mat-menu>
+        
+        <div class="admin">{{username}}</div>
+      </mat-toolbar>
+      <!-- <div><button mat-button class="">
+        <mat-icon mat-icon="input" aria-hidden="false"></mat-icon><span style="color: rgb(221, 30, 30);">Indietro</span>
+        </button></div> -->
+        <div class="User-panel">Pannello di Controllo <mat-icon class="icon-users">home</mat-icon>
+        <mat-icon class="icon-tree">trending_flat</mat-icon><span class="second-tree">Gestione Utenti</span>
+        </div>
+        <mat-form-field class="filter-class">
+          <mat-label >Ricerca Utente</mat-label>
+          <input matInput (keyup)="applyFilter($event)" #input>
+        </mat-form-field>
+        <div class="table-user">
+          <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" matSort>
+              <!--Id column-->          
+              <ng-container matColumnDef="id" >
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Id</th>
+                <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+              </ng-container>
+              <!-- User Column -->
+              <ng-container matColumnDef="Nome">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome</th>
+                <td mat-cell *matCellDef="let row"> {{row.Nome}} </td>
+              </ng-container>
+              <!-- User Column -->
+              <ng-container matColumnDef="Cognome">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Cognome</th>
+                <td mat-cell *matCellDef="let row"> {{row.Cognome}} </td>
+              </ng-container>
+          
+              <!-- Mail Column -->
+              <ng-container matColumnDef="Email">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Mail </th>
+                <td mat-cell *matCellDef="let row"> {{row.Email}} </td>
+              </ng-container>
+          
+              <!-- Rule Column -->
+              <ng-container matColumnDef="Ruolo">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Ruolo </th>
+                <td mat-cell *matCellDef="let row"> {{row.Ruolo}} </td>
+              </ng-container>
+              <!-- Action Column -->
+              <ng-container matColumnDef="Azioni">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Azioni </th>
+                <td mat-cell *matCellDef="let row"> {{row.Azioni}} 
+                <button mat-icon-button color="primary" (click)="editForm(row)">
+                  <mat-icon class="table-icon">edit</mat-icon>
+                </button>
+                <button mat-icon-button color="warn" (click)="deleteUser(row.id)">
+                  <mat-icon class="delete-icon">delete</mat-icon>
+                </button>
+                </td>
+              </ng-container>
+          
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          
+              <!-- Row shown when there is no matching data. -->
+              <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell-no-user" colspan="4">Nessun Corrispondenza trovata <!--"{{input.value}}"--></td> 
+              </tr>
+            </table>
+          
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+          </div>
+        </div>
+        <div>
+          <mat-dialog-actions>
+          <button mat-fab extended style="color:aliceblue;background-color: #d73d3d;font-size: small;" class="add-user-button" (click)="openDialog()">
+            <mat-icon style="color: white; font-size: 20px;margin-right: 5px;">person_add</mat-icon>
+            <span style="font-size: 10px;">Nuovo Utente</span> 
+          </button>
+        </mat-dialog-actions>
+        </div> 
+      
+    </mat-sidenav-content>
+  </mat-sidenav-container>
