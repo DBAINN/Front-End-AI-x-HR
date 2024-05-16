@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "Nome": "Riccardo",
+      "Cognome": "Dell'Anna",
+      "Email": "riccardo.dellanna@dbagroup.it",
+      "Password": "1234",
+      "Ruolo": "admin",
+      "id": "098c"
+    },
+    {
+      "Nome": "Antonio",
+      "Cognome": "Politano",
+      "Email": "antonio.politano@dbagroup.it",
+      "Password": "1234",
+      "Ruolo": "admin",
+      "id": "cfa2"
+    },
+    {
+      "Nome": "Alberto",
+      "Cognome": "Casagrande",
+      "Email": "alberto.casagrande@dbagroup.it",
+      "Password": "12345",
+      "Ruolo": "user",
+      "id": "2982"
+    }
+  ]
+}
