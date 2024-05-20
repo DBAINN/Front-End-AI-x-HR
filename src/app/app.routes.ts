@@ -3,7 +3,6 @@ import { LoginComponent } from './login/login.component';
 import { UsersAdminComponent } from './users-admin/users-admin.component';
 import { DialogUserWindowComponent } from './dialog-user-window/dialog-user-window.component';
 import { AuthGuard } from './guard/auth.guard';
-import { MapComponent } from './map/map.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { DocumentazioneComponent } from './documentazione/documentazione.component';
 import { LogComponent } from './log/log.component';
@@ -19,9 +18,6 @@ export const routes: Routes = [
         path:'users-admin',
     component:UsersAdminComponent, canActivate:[AuthGuard]},
     {
-        path:'map',
-    component:MapComponent, canActivate:[AuthGuard]},
-    {
         path:'welcome-page',
     component:WelcomePageComponent, canActivate:[AuthGuard]},
     {
@@ -29,6 +25,5 @@ export const routes: Routes = [
     component:DocumentazioneComponent},
     {
         path:'log',
-    component:LogComponent, canActivate:[AuthGuard]},
-    
+    component:LogComponent, canActivate:[AuthGuard]},    
 ];

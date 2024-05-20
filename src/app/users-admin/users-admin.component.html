@@ -27,17 +27,18 @@
     </mat-sidenav>
     <mat-sidenav-content>
       <mat-toolbar>
-        <button mat-icon-button class="example-icon" (click)="sidenav.toggle()">
-          <mat-icon class="icon-menu">menu</mat-icon>
-        </button>
+        <!-- <button mat-icon-button class="example-icon" (click)="sidenav.toggle()">
+           <mat-icon class="icon-menu">menu</mat-icon> 
+        </button> -->
         <span>Gestione Utenti</span>
+        <i class="fa-solid fa-users" style="margin-left: 7px; color: #0e6be3bd; font-size: 17px;"></i>
         <span class="example-spacer"></span>
         <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu utenti" (click)="returnhome()">
           <!-- <mat-icon class="users-admin">supervised_user_circle</mat-icon> -->
           <i class="fa-solid fa-house" style="color: #282525;font-size: 19px;"></i>
         </button>
         <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu utenti">
-          <i class="fa-regular fa-user" style="font-size: 20px; color: red;"></i>
+          <i class="fa-regular fa-user" style="font-size: 20px; color: #0e6be3bd;"></i>
         </button>
         <mat-menu #menu="matMenu">
           <button mat-menu-item class="button-logout" (click)="logout()"><mat-icon class="logout">logout</mat-icon><span style="font-size: 13px;">Log out</span></button>

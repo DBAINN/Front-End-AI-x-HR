@@ -6,18 +6,11 @@
       <mat-nav-list>
         <div style="margin-top: 20px; display: block;"></div>
             <a mat-list-item href="/users-admin" style="display: flex; align-items: center; justify-content: space-between; ">
-            <div style="display: flex; align-items: center;">
-              <i class="fa-solid fa-gears" style="font-size: 20px;"></i>
-                <span style="font-size: small;padding:11px;">Gestione Utenti</span>
-            </div>
-            <!-- Aggiungi il testo o altri elementi qui sulla parte destra -->
+              <div style="display: flex; align-items: center;">
+                <i class="fa-solid fa-gears" style="font-size: 20px;"></i>
+                  <span style="font-size: small;padding:11px;">Gestione Utenti</span>
+              </div>
             </a>
-            <!--<a mat-list-item href="/log" style="display: flex; align-items: center; justify-content: space-between;">
-                <div style="display: flex; align-items: center;">
-                  <i class="fa-solid fa-chart-simple" style="font-size: 20px;"></i>
-                  <span style="font-size: small; padding:23px;">Log Utenti</span>
-                </div>
-              </a>-->
       </mat-nav-list>
         <div style="position: absolute; top: 0; right: 0;padding: 10px;">
           <button mat-button style="position: absolute;  right: 0; padding: 10px;border: 1px solid transparent; transition: border-color 0.3s;"(click)="Closeside()">
@@ -30,15 +23,13 @@
         <button mat-icon-button class="example-icon" *ngIf="isAdmin()" (click)="sidenav.toggle()">
           <mat-icon class="menu-class">menu</mat-icon>
         </button> 
-        <span>Tool Documentazione H.R.<i class="fa-regular fa-file" style="margin-left: 5px; color: #e32f0e;"></i></span>
+        <span>Tool Documentazione H.R.<i class="fa-regular fa-file" style="margin-left: 5px; color: #0e6be3bd;"></i></span>
         <span class="example-spacer"></span>
-        <!-- <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu utenti" (click)="returnhome()">
-          <mat-icon class="users-admin">supervised_user_circle</mat-icon> 
+        <button mat-icon-button  aria-label="Menu utenti" (click)="backtostart()">
           <i class="fa-solid fa-house" style="color: #282525;font-size: 19px;"></i>
-        </button> -->
+        </button>
         <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu utenti">
-          <!-- <mat-icon class="users-admin">supervised_user_circle</mat-icon> -->
-          <i class="fa-regular fa-user" style="font-size: 20px; color: red;"></i>
+          <i class="fa-regular fa-user" style="font-size: 20px; color: #0e6be3bd;"></i>
         </button>
         <mat-menu #menu="matMenu">
           <button mat-menu-item class="button-logout" (click)="logout()"><mat-icon class="logout">logout</mat-icon><span style="font-size: 13px;">Log out</span></button>
@@ -47,18 +38,38 @@
         <img src="assets/logoInnovationwithout.png" alt="Immagine di login" class="image">
       </mat-toolbar>
       <div class="User-panel">
-        <i class="fa-solid fa-house" style="font-size: 15px;"></i>
-        <i class="fa-solid fa-arrow-right" style="margin-left:5px; font-size: 11px;padding-bottom: 2px;"></i>
+        <i class="fa-solid fa-house" style="font-size: 15px; color: gray;"></i>
+        <i class="fa-solid fa-arrow-right" style="margin-left:5px; font-size: 11px;padding-bottom: 2px;color: gray;"></i>
         <span class="second-tree">Tool Documentazione H.R.</span>
         </div> 
       <mat-horizontal-stepper linear #stepper>
-        <mat-step  class="gg" label="Upload file richiesti (zip)" [completed]="firstStepCompleted">
+        <mat-step  class="gg" label="Upload file richiesto (zip)" [editable]="firstStepCompleted">
           <div class="flex-container">
-            <!-- Form per il caricamento del file PDF -->
+            <!-- Expansion Panel con le istruzioni -->
+      <!-- <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Istruzioni per il caricamento del file ZIP
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div>
+          Prima di procedere alla creazione e successivo caricamento dello ZIP, ricorda di rinominare i file excel facendo precedere al nome degli stessi, il numero identificativo scelto in accordo alla tipologia di contenuto:
+          <ul>
+            <li>1 => Risorse attive</li>
+            <li>2 => Presenze Fiori</li>
+            <li>3 => Diarie</li>
+            <li>4 => Richieste Ferie/Permessi/ROL (mytime)</li>
+            <li>5 => Riepilogo Note Spese</li>
+            <li>6 => Rendicontazione Ferie Permessi (mytime)</li>
+            <li>7 => Dipendenti per Sede</li>
+          </ul>
+        </div> -->
+      <!-- </mat-expansion-panel> -->
+            <!-- Form per il caricamento del file excel -->
             <mat-card class="form-container">
               <form id="pdf-upload-ZIP" enctype="multipart/form-data" (submit)="onSubmit($event)">
                 <div>
-                  <h4 style="text-align: center; margin-top: 25px;font-size: 26px; color:#808080c2;">Carica file excel in formato ZIP</h4>
+                  <h4 style="text-align: center; margin-top: 25px;font-size: 26px; color:#808080c2;">Carica l'elenco dei file excel in formato ZIP</h4>
                   <mat-divider class="horizontal-divider"></mat-divider>
                   <div class="choose-file">
                     <input type="file" id="file-input-zip" #fileInput multiple (change)="onZIPSelected($event)" accept=".zip"/>
@@ -73,7 +84,7 @@
                   <div class="upload-docs">
                   <button mat-raised-button type="submit" id="analyzeButton" style="padding: 10px 20px; font-size: 17px; margin-top: 35px; "  block="true"  [disabled]="submitting || !fileListZIP">
                     <span *ngIf="!submitting">Analizza</span>
-                    <mat-spinner *ngIf="submitting" diameter="24" color="warn"></mat-spinner>       <!--<span *ngIf="submitting" span>Elaborazione richiesta in corso.</span> -->
+                    <mat-spinner *ngIf="submitting" diameter="24" color="warn"></mat-spinner>
                     </button> 
                     </div>            
                   </div>
@@ -84,12 +95,12 @@
               </div>
         </mat-step>
         
-        <mat-step label="Scarica excel incongruenze" [editable]="thirdStepEditable">
+        <mat-step label="Scarica excel" [editable]="thirdStepEditable">
           <div>
             <i class="fa-solid fa-circle-check" style="color: #00ff15b8;font-size: 56px;display: flex;justify-content: center;margin-top: 20px;"></i><span class="complete" style="text-align: center; margin-top: 25px;font-size: 26px; color:#808080c2;">Operazione Completata con Successo!</span>
           </div>
           <div class="button-container">
-            <button mat-button class="button-left" (click)="downloadZIP()"><i class="fa-solid fa-file-excel" style="margin-right: 5px; font-size: 20px;"></i><span style="font-size: 18px;">Scarica excel</span></button>
+            <button mat-button class="button-left" (click)="downloadExcel()"><i class="fa-solid fa-file-excel" style="margin-right: 5px; font-size: 20px;"></i><span style="font-size: 18px;">Scarica excel</span></button>
           </div>    
           
         </mat-step>

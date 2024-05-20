@@ -16,21 +16,6 @@ interface Item {
 export class ApiService {
   private apiUrl = 'http://127.0.0.1:5000';
   constructor(private http: HttpClient,private chatService: ChatService){}
-  submitCoordinates(data:any){
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-    });
-    return this.http.post<any>(`${this.apiUrl}/submit-coordinates`, data, { headers })
-      .pipe(
-        catchError(error => {
-          console.error('Error submitting coordinates:', error);
-          return throwError(error);
-        })
-      );
-  }
-  downloadPDF(filename: string): Observable<Blob> {
-    return this.http.get(`${this.apiUrl}/map/${filename}`, { responseType: 'blob' });
-  }
   uploadPOS(pdfFile: File): Observable<any> {
     const formData = new FormData();
     formData.append('pdfFile', pdfFile);
@@ -85,14 +70,10 @@ private async sendQuestionToServer(letter: string, item: Item, key: string, ques
       throw error; // Rilancia l'errore per gestirlo altrove se necessario
   }
 }
-uploadFolder(pdfFile: File, zipFile: File): Observable<any> {
+uploadFolder(zipFile: File): Observable<any> {
   const formData = new FormData();
-  formData.append('pdfFile', pdfFile);
   formData.append('zipFile', zipFile);
-
   const headers = new HttpHeaders();
-  // Aggiungi eventuali header necessari
-
   return this.http.post<any>(`${this.apiUrl}/uploadFolder`, formData, { headers }).pipe(
     catchError(error => {
       console.error('Error uploading folder:', error);
@@ -100,24 +81,24 @@ uploadFolder(pdfFile: File, zipFile: File): Observable<any> {
     })
   );
 }
-downloadAnswers(): void {
+downloadExcel(): void {
   const options = {
     responseType: 'blob' as 'json', // Indica al server di restituire un blob (file binario)
   };
 
-  this.http.get('http://localhost:5000/download_answers', options).pipe(
+  this.http.get('http://localhost:5000/downloadExcel', options).pipe(
     catchError((error: HttpErrorResponse) => {
-      console.error('Errore durante il download delle risposte:', error);
-      return throwError('Errore durante il download delle risposte.');
+      console.error('Errore durante il downlaod del file excel', error);
+      return throwError('Errore durante il download del file excel.');
     })
-  ).subscribe((response: any) => { // Specifica il tipo di risposta come 'any'
+  ).subscribe((response: any) => {
     // Crea un URL temporaneo per il blob
     const url = window.URL.createObjectURL(response);
     
     // Crea un link <a> invisibile per avviare il download
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'answers.xlsx'; // Nome del file scaricato
+    link.download = 'Incongruenze_rilevate.xlsx'; // Nome del file scaricato
     link.click();
 
     // Rilascia l'URL temporaneo
@@ -130,6 +111,13 @@ downloadZipFile(filename: string): Observable<Blob> {
   
   // Esegui la richiesta HTTP per scaricare il file ZIP
   return this.http.get(url, { responseType: 'blob' });
+}
+uploadFile(file: File): Observable<any> {
+  const apiUrl='http://127.0.0.1:5000/';
+  const formData: FormData = new FormData();
+  formData.append('file', file, file.name);
+
+  return this.http.post<any>(apiUrl, formData);
 }
 }
 
