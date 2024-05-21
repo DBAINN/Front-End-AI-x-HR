@@ -266,3 +266,17 @@
   width: 85%;
   margin-left: 152px;
 }
+.info-button{
+  background: none;
+  border: none;
+}
+.info-button:hover{
+  cursor: pointer;
+  transform:  scale(1.1);
+}
+.info-icon{
+color: #00bcd4;
+}
+:hover{
+  color: #080808;
+}

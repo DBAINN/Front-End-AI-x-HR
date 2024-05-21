@@ -13,17 +13,28 @@ import {MatStepper, MatStepperModule} from '@angular/material/stepper';
 import { MatCard } from '@angular/material/card';
 import { ApiService } from '../users-admin/API/api.service';
 import { CommonModule } from '@angular/common';
-import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDialogModule} from '@angular/material/dialog';
+import { InfoDialogComponent } from '../info-dialog/info-dialog.component';
+import {
+  MatDialog,
+  MatDialogRef,
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogTitle,
+  MatDialogContent,
+} from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-documentazione',
   standalone: true,
-  imports: [MatToolbarModule, MatIconModule, MatButtonModule, MatSidenavModule, MatListModule, MatMenuModule,MatDrawer,MatProgressSpinnerModule,MatStepperModule,MatCard,CommonModule,MatExpansionModule],
+  imports: [MatToolbarModule, MatIconModule, MatButtonModule, MatSidenavModule, MatListModule, MatMenuModule,MatDrawer,MatProgressSpinnerModule,MatStepperModule,MatCard,CommonModule,MatDialogModule],
   templateUrl: './documentazione.component.html',
   styleUrl: './documentazione.component.css'
 })
 export class DocumentazioneComponent implements OnInit {
   userdata:any;
+  errorMessage: string | null = null;
   thirdStepEditable:boolean=false;
   firstStepCompleted: boolean = false;
   fileListZIP: File | undefined;
@@ -35,7 +46,8 @@ export class DocumentazioneComponent implements OnInit {
   @ViewChild('fileInput') fileInput: ElementRef<HTMLInputElement> | undefined;
   fileList: HTMLElement | null = null;
   numOfFiles: HTMLElement | null = null;
-  constructor(private router: Router, @Inject(PLATFORM_ID) private platformId: Object, private _boolean: AuthService,private api:ApiService){}
+  constructor(private router: Router, @Inject(PLATFORM_ID) private platformId: Object, private _boolean: AuthService,private api:ApiService, private dialogRef:MatDialog){}
+  
   ngOnInit(): void {
     this.fileList = document.querySelector<HTMLUListElement>("#files-list");
     this.numOfFiles = document.querySelector<HTMLDivElement>("#num-of-files");
@@ -117,7 +129,7 @@ onSubmit(event: Event): void {
     console.error('Devi selezionare file ZIP.');
     return;
   }
-
+  this.errorMessage=null;
   // Invia la richiesta POST al backend
 this.submitting = true; // Imposta la variabile per visualizzare il caricamento
 this.api.uploadFile(this.fileListZIP).subscribe(
@@ -134,6 +146,7 @@ this.api.uploadFile(this.fileListZIP).subscribe(
     console.error('Errore durante la richiesta al backend:', error);
     // Gestisci l'errore qui...
     this.submitting = false; // Nasconde il caricamento anche in caso di errore
+    this.errorMessage=error.message;
   }
 );
 }
@@ -158,4 +171,9 @@ backtostart():void{
 downloadExcel(): void {
   this.api.downloadExcel();
 }
+
+openDialog(){
+  this.dialogRef.open(InfoDialogComponent)
+}
+
 }

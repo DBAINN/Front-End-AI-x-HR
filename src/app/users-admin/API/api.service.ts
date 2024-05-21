@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders,HttpErrorResponse} from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
-import { throwError,Observable } from 'rxjs';
+import { throwError,Observable,catchError} from 'rxjs';
 import { ChatService } from '../../chat.service';
-import { map } from 'rxjs/operators';
+
 // Definizione dell'interfaccia per l'oggetto 'item'
 interface Item {
   chiave: string;
@@ -117,7 +116,12 @@ uploadFile(file: File): Observable<any> {
   const formData: FormData = new FormData();
   formData.append('file', file, file.name);
 
-  return this.http.post<any>(apiUrl, formData);
+  return this.http.post<any>(apiUrl, formData).pipe(
+    catchError((error: HttpErrorResponse) => {
+      console.error('Errore durante la richiesta al backend:', error);
+      return throwError(() => new Error('Errore durante la richiesta al backend.')); // Propaga l'errore
+    })
+  );
 }
 }
 

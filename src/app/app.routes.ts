@@ -6,6 +6,7 @@ import { AuthGuard } from './guard/auth.guard';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { DocumentazioneComponent } from './documentazione/documentazione.component';
 import { LogComponent } from './log/log.component';
+import { InfoDialogComponent } from './info-dialog/info-dialog.component';
 
 export const routes: Routes = [
     {
@@ -25,5 +26,8 @@ export const routes: Routes = [
     component:DocumentazioneComponent},
     {
         path:'log',
-    component:LogComponent, canActivate:[AuthGuard]},    
+    component:LogComponent, canActivate:[AuthGuard]},
+    {
+        path:'info-dialog',
+    component:InfoDialogComponent},    
 ];

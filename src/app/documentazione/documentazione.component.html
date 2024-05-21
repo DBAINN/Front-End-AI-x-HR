@@ -81,6 +81,7 @@
                     <div id="num-of-files-zip">Nessun file selezionato</div>
                     <ul id="files-list-zip"></ul>
                   </div>
+                  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div> <!-- Visualizza l'errore -->
                   <div class="upload-docs">
                   <button mat-raised-button type="submit" id="analyzeButton" style="padding: 10px 20px; font-size: 17px; margin-top: 35px; "  block="true"  [disabled]="submitting || !fileListZIP">
                     <span *ngIf="!submitting">Analizza</span>
@@ -93,6 +94,15 @@
                 </form>              
             </mat-card>
               </div>
+              <!-- <span class="istruzioni">Info</span> -->
+            <!-- <button mat-raised-button class="info-button">
+              <i class="fa-solid fa-question" style="font-size: 10px;"></i>
+            </button>-->
+            <mat-dialog-actions>
+            <button class="info-button" (click)="openDialog()">
+            <mat-icon class="info-icon" cursor="pointer">info</mat-icon>              
+            </button>
+            </mat-dialog-actions>
         </mat-step>
         
         <mat-step label="Scarica excel" [editable]="thirdStepEditable">
