@@ -19,7 +19,7 @@
           </div>
     </mat-sidenav>
     <mat-sidenav-content>
-      <mat-toolbar>
+      <mat-toolbar *ngIf="!errorMessage">
         <button mat-icon-button class="example-icon" *ngIf="isAdmin()" (click)="sidenav.toggle()">
           <mat-icon class="menu-class">menu</mat-icon>
         </button> 
@@ -37,34 +37,18 @@
         <div class="admin">{{username}}</div>
         <img src="assets/logoInnovationwithout.png" alt="Immagine di login" class="image">
       </mat-toolbar>
-      <div class="User-panel">
+      <div class="User-panel" *ngIf="!errorMessage">
         <i class="fa-solid fa-house" style="font-size: 15px; color: gray;"></i>
         <i class="fa-solid fa-arrow-right" style="margin-left:5px; font-size: 11px;padding-bottom: 2px;color: gray;"></i>
         <span class="second-tree">Tool Documentazione H.R.</span>
-        </div> 
-      <mat-horizontal-stepper linear #stepper>
+        </div>
+        <div class="error-container" *ngIf="errorMessage">
+          <i class="fa-solid fa-circle-exclamation" style="color: #da1616; margin-right: 5px; font-size: 60px;"></i>
+          <div class="error-text" *ngIf="errorMessage">{{ errorMessage }}</div>
+        </div>
+      <mat-horizontal-stepper linear #stepper *ngIf="!errorMessage">
         <mat-step  class="gg" label="Upload file richiesto (zip)" [editable]="firstStepCompleted">
           <div class="flex-container">
-            <!-- Expansion Panel con le istruzioni -->
-      <!-- <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Istruzioni per il caricamento del file ZIP
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <div>
-          Prima di procedere alla creazione e successivo caricamento dello ZIP, ricorda di rinominare i file excel facendo precedere al nome degli stessi, il numero identificativo scelto in accordo alla tipologia di contenuto:
-          <ul>
-            <li>1 => Risorse attive</li>
-            <li>2 => Presenze Fiori</li>
-            <li>3 => Diarie</li>
-            <li>4 => Richieste Ferie/Permessi/ROL (mytime)</li>
-            <li>5 => Riepilogo Note Spese</li>
-            <li>6 => Rendicontazione Ferie Permessi (mytime)</li>
-            <li>7 => Dipendenti per Sede</li>
-          </ul>
-        </div> -->
-      <!-- </mat-expansion-panel> -->
             <!-- Form per il caricamento del file excel -->
             <mat-card class="form-container">
               <form id="pdf-upload-ZIP" enctype="multipart/form-data" (submit)="onSubmit($event)">
@@ -81,7 +65,6 @@
                     <div id="num-of-files-zip">Nessun file selezionato</div>
                     <ul id="files-list-zip"></ul>
                   </div>
-                  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div> <!-- Visualizza l'errore -->
                   <div class="upload-docs">
                   <button mat-raised-button type="submit" id="analyzeButton" style="padding: 10px 20px; font-size: 17px; margin-top: 35px; "  block="true"  [disabled]="submitting || !fileListZIP">
                     <span *ngIf="!submitting">Analizza</span>
