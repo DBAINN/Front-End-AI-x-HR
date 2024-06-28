@@ -1,50 +1,56 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from  "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from 'rxjs';
-
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersServices {
 
-  constructor(private _http:HttpClient) {}
-  addUser(data:any):Observable<any>{
-    return this._http.post('http://localhost:3000/users',data);
+  private apiUrl = 'http://localhost:3000/users';
+  private loginUrl = 'http://localhost:3000/login';
+
+  constructor(private _http: HttpClient) {}
+
+  private getHeaders() {
+    const token = sessionStorage.getItem('token');
+    return new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': token ? `Bearer ${token}` : ''
+    });
   }
-  updateUser(id:number,data:any):Observable<any>{
-    return this._http.put(`http://localhost:3000/users/${id}`,data);
+
+  login(email: string, password: string): Observable<any> {
+    return this._http.post(this.loginUrl, { email, password });
   }
-  getUsersList():Observable<any>{
-    return this._http.get('http://localhost:3000/users');
+
+  addUser(data: any): Observable<any> {
+    return this._http.post(this.apiUrl, data, { headers: this.getHeaders() });
   }
-  deleteUsersList(id:string): Observable<any> {
-    return this._http.delete(`http://localhost:3000/users/${id}`);
+
+  updateUser(id: number, data: any): Observable<any> {
+    return this._http.put(`${this.apiUrl}/${id}`, data, { headers: this.getHeaders() });
   }
+
+  getUsersList(): Observable<any> {
+    return this._http.get(this.apiUrl, { headers: this.getHeaders() });
+  }
+
+  deleteUsersList(id: string): Observable<any> {
+    return this._http.delete(`${this.apiUrl}/${id}`, { headers: this.getHeaders() });
+  }
+
   getUsers(): Observable<any[]> {
-    return this._http.get<any[]>('http://localhost:3000/users');
+    return this._http.get<any[]>(this.apiUrl, { headers: this.getHeaders() });
   }
-  logLogin(Nome: string, Cognome:string, timeStamp:string): void {
+
+  logLogin(Nome: string, Cognome: string, timeStamp: string): void {
     // Registra l'accesso dell'utente
     console.log(`L'utente ${Nome} ${Cognome} ha effettuato l'accesso il ${timeStamp}`);
-    
-    // Invia i log al server
-    // this._http.post('http://localhost:3000/logs', { userName, timeStamp }).subscribe(
-    //   () => console.log('Log di accesso inviato al server'),
-    //   error => console.error('Errore durante l\'invio del log di accesso al server:', error)
-    // );
   }
 
   logLogout(userName: string, timeStamp: Date): void {
     // Registra il logout dell'utente
     console.log(`Utente ${userName} ha effettuato il logout il ${timeStamp}`);
-    
-    // Invia i log al server
-    // this._http.post('http://localhost:3000/logs', { userName, timeStamp }).subscribe(
-    //   () => console.log('Log di logout inviato al server'),
-    //   error => console.error('Errore durante l\'invio del log di logout al server:', error)
-    // );
   }
 }
-
